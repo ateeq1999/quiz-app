@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Schema::defaultStringLength(191);
         Question::deleting(function ($question) {
             $question->options()->delete();
         });
