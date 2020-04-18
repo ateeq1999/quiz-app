@@ -6,6 +6,13 @@
             data-auto-scroll="true"
             data-slide-speed="200">
 
+            <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}">
+                    <i class="fa fa-gears"></i>
+                    <span class="title">@lang('quickadmin.home.home')</span>
+                </a>
+            </li>
+
             <li class="{{ $request->segment(1) == 'tests' ? 'active' : '' }}">
                 <a href="{{ route('tests.index') }}">
                     <i class="fa fa-gears"></i>
@@ -81,17 +88,6 @@
             </li>
         </ul>
 
-        <div class="text-center margin-top-20" style="color: white">
-            LaraQuiz is powered by
-            <br />
-            <a href="https://quickadminpanel.com" target="_blank">QuickAdminPanel.com</a>
-
-            <br /><br />
-
-            Feedback/questions?
-            <br />
-            <a href="mailto:info@laraveldaily.com" target="_blank">info@laraveldaily.com</a>
-        </div>
     </div>
 </div>
 {!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}

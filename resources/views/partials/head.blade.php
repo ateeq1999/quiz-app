@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>
-    LaraQuiz - powered by QuickAdminPanel.com
+    Quiz App
 </title>
 
 <meta http-equiv="X-UA-Compatible"

@@ -4,18 +4,20 @@
     <div class="row">
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome! Here are some numbers about LaraQuiz.</div>
+                <div class="panel-heading">Welcome! Here are some numbers about Quiz App.</div>
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-3 text-center">
-                            <h1>{{ $questions }}</h1>
-                            questions in our database
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <h1>{{ $users }}</h1>
-                            users registered
-                        </div>
+                        @if (auth()->user()->isAdmin())
+                            <div class="col-md-3 text-center">
+                                <h1>{{ $questions }}</h1>
+                                questions in our database
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h1>{{ $users }}</h1>
+                                users registered
+                            </div>
+                        @endif
                         <div class="col-md-3 text-center">
                             <h1>{{ $quizzes }}</h1>
                             quizzes taken
