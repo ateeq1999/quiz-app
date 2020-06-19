@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('tests', 'TestsController');
     Route::resource('roles', 'RolesController');
     Route::post('roles_mass_destroy', ['uses' => 'RolesController@massDestroy', 'as' => 'roles.mass_destroy']);
+    Route::resource('subjects', 'SubjectsController');
+    Route::post('subjects_mass_destroy', ['uses' => 'SubjectsController@massDestroy', 'as' => 'subjects.mass_destroy']);
     Route::resource('users', 'UsersController');
     Route::post('users_mass_destroy', ['uses' => 'UsersController@massDestroy', 'as' => 'users.mass_destroy']);
     Route::resource('user_actions', 'UserActionsController');

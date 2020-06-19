@@ -38,6 +38,13 @@ return [
 		],
 	],
 
+	'subjects' => [
+		'title' => 'Subjects',
+		'fields' => [
+			'title' => 'Title',
+		],
+	],
+
 	'users' => [
 		'title' => 'Users',
 		'fields' => [
@@ -63,6 +70,7 @@ return [
 		'title' => 'Topics',
 		'fields' => [
 			'title' => 'Title',
+			'subject_name' => 'Subject',
 		],
 	],
 

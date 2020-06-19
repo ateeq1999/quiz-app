@@ -6,6 +6,7 @@ use DB;
 use Auth;
 use App\Test;
 use App\TestAnswer;
+use App\Subject;
 use App\Topic;
 use App\Question;
 use App\QuestionsOption;
@@ -21,6 +22,7 @@ class TestsController extends Controller
      */
     public function index()
     {
+        $subjects = Subject::inRandomOrder()->get();
         $topics = Topic::inRandomOrder()->get();
 
         // $topics = Topic::inRandomOrder()->limit(10)->get();
@@ -41,7 +43,7 @@ class TestsController extends Controller
         }
         */
 
-        return view('tests.index', compact('questions', 'topics'));
+        return view('tests.index', compact('questions', 'topics', 'subjects'));
         
         // return view('tests.create', compact('questions'));
     }
@@ -50,7 +52,7 @@ class TestsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Subject $subject)
     {
         // $questions = Question::inRandomOrder()->limit(10)->get();
         $questions = Question::inRandomOrder()->get();

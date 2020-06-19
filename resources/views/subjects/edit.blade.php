@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.topics.title')</h3>
+    <h3 class="page-title">@lang('quickadmin.subjects.title')</h3>
     
-    {!! Form::model($topic, ['method' => 'PUT', 'route' => ['topics.update', $topic->id]]) !!}
+    {!! Form::model($subject, ['method' => 'PUT', 'route' => ['subjects.update', $subject->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -23,18 +23,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('subject_id', 'Subject*', ['class' => 'control-label']) !!}
-                    {!! Form::select('subject_id', $subjects, old('subject_id'), ['class' => 'form-control']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('subject_id'))
-                        <p class="help-block">
-                            {{ $errors->first('subject_id') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
+            
         </div>
     </div>
 

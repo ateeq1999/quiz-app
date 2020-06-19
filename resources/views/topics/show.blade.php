@@ -13,7 +13,10 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr><th>@lang('quickadmin.topics.fields.title')</th>
-                    <td>{{ $topic->title }}</td></tr>
+                        <th>@lang('quickadmin.topics.fields.subject_name')</th>
+                    <td>{{ $topic->subject->title }}</td>
+                    <td>{{ $topic->title }}</td>
+                </tr>
                     </table>
                 </div>
             </div>

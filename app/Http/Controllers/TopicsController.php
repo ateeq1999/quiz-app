@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Topic;
+// use App\Subject;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTopicsRequest;
 use App\Http\Requests\UpdateTopicsRequest;
@@ -33,7 +34,11 @@ class TopicsController extends Controller
      */
     public function create()
     {
-        return view('topics.create');
+        $relations = [
+            'subjects' => \App\Subject::get()->pluck('title', 'id')->prepend('Please select', ''),
+        ];
+
+        return view('topics.create', $relations);
     }
 
     /**
@@ -58,9 +63,13 @@ class TopicsController extends Controller
      */
     public function edit($id)
     {
+        $relations = [
+            'subjects' => \App\Subject::get()->pluck('title', 'id')->prepend('Please select', ''),
+        ];
+
         $topic = Topic::findOrFail($id);
 
-        return view('topics.edit', compact('topic'));
+        return view('topics.edit', compact('topic') + $relations);
     }
 
     /**
@@ -87,9 +96,13 @@ class TopicsController extends Controller
      */
     public function show($id)
     {
+        $relations = [
+            'subjects' => \App\Subject::get()->pluck('title', 'id')->prepend('Please select', ''),
+        ];
+
         $topic = Topic::findOrFail($id);
 
-        return view('topics.show', compact('topic'));
+        return view('topics.show', compact('topic') + $relations);
     }
 
 

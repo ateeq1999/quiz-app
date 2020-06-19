@@ -8,14 +8,14 @@
         </div> --}}
         <div class="panel-body">
             <div class="row">
-                @foreach ($topics as $topic)
+                @foreach ($subjects as $subject)
                     <div class="col-md-4 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                {{ $topic->title }}
+                                {{ $subject->title }}
                             </div>
                             <div class="panel-body">
-                                <a class="btn btn-outline-info btn-md" href="{{ route('tests.show', $topic->id) }}">{{ 'Click Me To Start The Quiz' }}</a>
+                                <a class="btn btn-outline-info btn-md" href="{{ route('tests.show', $subject->id) }}">{{ 'Click Me To Start The Quiz' }}</a>
                             </div>
                         </div>
                     </div>

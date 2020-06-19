@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTopicsRequest extends FormRequest
+class StoreSubjectsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,6 @@ class UpdateTopicsRequest extends FormRequest
     public function rules()
     {
         return [
-            'subject_id' => 'required',
             'title' => 'required',
         ];
     }

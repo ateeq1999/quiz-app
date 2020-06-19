@@ -22,7 +22,18 @@
                     @endif
                 </div>
             </div>
-            
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('subject_id', 'Topic*', ['class' => 'control-label']) !!}
+                    {!! Form::select('subject_id', $subjects, old('subject_id'), ['class' => 'form-control']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('subject_id'))
+                        <p class="help-block">
+                            {{ $errors->first('subject_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
 

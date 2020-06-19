@@ -23,6 +23,7 @@ class StoreTopicsRequest extends FormRequest
     public function rules()
     {
         return [
+            'subject_id' => 'required',
             'title' => 'required',
         ];
     }

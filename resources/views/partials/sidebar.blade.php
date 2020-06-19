@@ -28,6 +28,12 @@
             </li>
 
             @if(Auth::user()->isAdmin())
+            <li class="{{ $request->segment(1) == 'subjects' ? 'active' : '' }}">
+                <a href="{{ route('subjects.index') }}">
+                    <i class="fa fa-gears"></i>
+                    <span class="title">@lang('quickadmin.subjects.title')</span>
+                </a>
+            </li>
             <li class="{{ $request->segment(1) == 'topics' ? 'active' : '' }}">
                 <a href="{{ route('topics.index') }}">
                     <i class="fa fa-gears"></i>
