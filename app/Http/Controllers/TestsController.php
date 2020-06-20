@@ -22,7 +22,27 @@ class TestsController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::inRandomOrder()->get();
+        $subjects = Subject::all();
+
+        $data = [];
+        $sub_data = [];
+        $i = 0;
+        $sd = 0;
+
+        foreach ($subjects as $subject) {
+            if ($subject->topics->count() > 0) {
+                foreach ($subject->topics as $topic) {
+                    if($topic->questions->count() > 0){
+                        $data[$i] = $topic;
+                        $i++;
+                    }
+                }
+                $sub_data[$sd]['subject'] = $subject;
+                $sub_data[$sd]['tests'] = $data;
+                $sd++;
+            }
+        }
+
         $topics = Topic::inRandomOrder()->get();
 
         // $topics = Topic::inRandomOrder()->limit(10)->get();
@@ -43,7 +63,7 @@ class TestsController extends Controller
         }
         */
 
-        return view('tests.index', compact('questions', 'topics', 'subjects'));
+        return view('tests.index', compact('questions', 'topics', 'subjects', 'sub_data'));
         
         // return view('tests.create', compact('questions'));
     }
@@ -52,10 +72,10 @@ class TestsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function show($topic_id)
     {
         // $questions = Question::inRandomOrder()->limit(10)->get();
-        $questions = Question::inRandomOrder()->get();
+        $questions = Question::where([['topic_id' , (int)$topic_id] ])->get();
         foreach ($questions as &$question) {
             $question->options = QuestionsOption::where('question_id', $question->id)->inRandomOrder()->get();
         }

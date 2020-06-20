@@ -8,17 +8,31 @@
         </div> --}}
         <div class="panel-body">
             <div class="row">
-                @foreach ($subjects as $subject)
-                    <div class="col-md-4 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                {{ $subject->title }}
-                            </div>
-                            <div class="panel-body">
-                                <a class="btn btn-outline-info btn-md" href="{{ route('tests.show', $subject->id) }}">{{ 'Click Me To Start The Quiz' }}</a>
+                @foreach ($sub_data as $data)
+                    {{-- @if ($data->subject->count() > 0) --}}
+                        <div class="col-md-4 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    {{ $data['subject']['title'] }}
+                                </div>
+                                <div class="panel-body">
+                                    @foreach ($data['subject']['topics'] as $topic)
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    {{ $topic->title }}
+                                                </div>
+                                                <div class="panel-body">
+                                                    <a class="btn btn-outline-info btn-md" href="{{ route('tests.show', $topic->id) }}">{{ 'Click Me To See Topic Questions' }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                    {{-- <a class="btn btn-outline-info btn-md" href="{{ route('tests.show', $subject->id) }}">{{ 'Click Me To Start The Quiz' }}</a> --}}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {{-- @endif --}}
                 @endforeach
             </div>
         </div>
