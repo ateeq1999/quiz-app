@@ -63,7 +63,9 @@ class TestsController extends Controller
         }
         */
 
-        return view('tests.index', compact('questions', 'topics', 'subjects', 'sub_data'));
+        return view('tests.test', compact('questions', 'topics', 'subjects', 'sub_data'));
+        return view('tests.new', compact('questions', 'topics', 'subjects', 'sub_data'));
+        // return view('tests.index', compact('questions', 'topics', 'subjects', 'sub_data'));
         
         // return view('tests.create', compact('questions'));
     }

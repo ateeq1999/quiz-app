@@ -3,6 +3,7 @@
 
 <head>
     @include('partials.head')
+    {{-- <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css"> --}}
 </head>
 
 <body class="page-header-fixed">
@@ -65,5 +66,8 @@
     {!! Form::close() !!}
 
     @include('partials.javascripts')
+    {{-- <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script> --}}
 </body>
 </html>

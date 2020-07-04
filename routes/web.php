@@ -1,4 +1,8 @@
 <?php
+
+Route::get('/temp', function () {
+    return view('login');
+});
 Route::get('/', function () {
     return redirect('/home');
 });
