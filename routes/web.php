@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/temp', function () {
+Route::get('/login', function () {
     return view('login');
 });
 Route::get('/', function () {
@@ -10,7 +10,7 @@ Route::get('/', function () {
 // Auth::routes();
 
 // Authentication Routes...
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
+// $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
 $this->post('login', 'Auth\LoginController@login')->name('auth.login');
 $this->post('logout', 'Auth\LoginController@logout')->name('auth.logout');
 $this->get('oauth2google', 'Auth\Oauth2Controller@oauth2google')->name('oauth2google');

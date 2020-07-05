@@ -27,9 +27,11 @@ class ResultsController extends Controller
 
         if (!Auth::user()->isAdmin()) {
             $results = $results->where('user_id', '=', Auth::id());
+            return view('tests.results', compact('results'));
+        }else{
+            return view('results.index', compact('results'));
         }
 
-        return view('results.index', compact('results'));
     }
 
     /**
@@ -50,6 +52,12 @@ class ResultsController extends Controller
             ;
         }
 
-        return view('results.show', compact('test', 'results'));
+        if (Auth::user()->isAdmin()) {
+            return view('results.show', compact('test', 'results'));
+        }else{
+            // dd('user');
+            return view('tests.results-show', compact('test', 'results'));
+        }
+
     }
 }

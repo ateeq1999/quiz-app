@@ -4,18 +4,36 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were problems with input:
+                        <br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" 
+                    role="form"
+                    method="POST"
+                    action="{{ url('login') }}">
+                    <input type="hidden"
+                               name="_token"
+                               value="{{ csrf_token() }}">
                     <span class="login100-form-title">
                         Sign In
                     </span>
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
+                        <input class="input100" name="email"
+                        value="{{ old('email') }}" type="email" placeholder="Email">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Please enter password">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -30,8 +48,8 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Sign in
+                        <button type="submit" class="login100-form-btn">
+                            Login
                         </button>
                     </div>
 

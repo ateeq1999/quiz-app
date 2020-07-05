@@ -7,6 +7,7 @@ use App\Question;
 use App\Result;
 use App\Test;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,6 +20,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // $this->middleware('isAdmin');
     }
 
     /**
@@ -32,6 +34,10 @@ class HomeController extends Controller
         $users = User::whereNull('role_id')->count();
         $quizzes = Test::count();
         $average = Test::avg('result');
-        return view('home', compact('questions', 'users', 'quizzes', 'average'));
+        if (Auth::user()->isAdmin()) {
+            return view('home', compact('questions', 'users', 'quizzes', 'average'));
+        }else{
+            return view('home-new', compact('questions', 'users', 'quizzes', 'average'));
+        }
     }
 }
