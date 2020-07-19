@@ -35,10 +35,8 @@ class HomeController extends Controller
         $quizzes = Test::count();
         $average = Test::avg('result');
         if (Auth::user()->isAdmin()) {
-            dd('admin');
             return view('home', compact('questions', 'users', 'quizzes', 'average'));
         }else{
-            dd('user');
             return view('home-new', compact('questions', 'users', 'quizzes', 'average'));
         }
     }
