@@ -4,9 +4,9 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/', function () {
-    return redirect('/home');
-});
+// Route::get('/', function () {
+//     return redirect('/home');
+// });
 
 // Auth::routes();
 
