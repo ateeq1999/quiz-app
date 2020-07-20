@@ -14,8 +14,8 @@
                             quizzes taken
                         </div>
                         <div class="col-md-6 col-sm-3 text-center">
-                            <h1>{{ number_format($average, 2) }} / 10</h1>
-                            average score
+                            {{-- <h1>{{ number_format($average, 2) }} / 10</h1>
+                            average score --}}
                         </div>
                     </div>
                 </div>

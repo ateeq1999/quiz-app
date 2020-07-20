@@ -33,11 +33,12 @@ class HomeController extends Controller
         $questions = Question::count();
         $users = User::whereNull('role_id')->count();
         $quizzes = Test::count();
-        $average = Test::avg('result');
+        // $average = Test::avg('result');
         if (Auth::user()->isAdmin()) {
-            return view('home', compact('questions', 'users', 'quizzes', 'average'));
+            return view('home', compact('questions', 'users', 'quizzes'));
+            // return view('home', compact('questions', 'users', 'quizzes', 'average'));
         }else{
-            return view('home-new', compact('questions', 'users', 'quizzes', 'average'));
+            return view('home-new', compact('questions', 'users', 'quizzes'));
         }
     }
 }
